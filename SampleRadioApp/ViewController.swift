@@ -25,11 +25,11 @@ class ViewController: UIViewController {
                 MPMediaItemPropertyArtist: "87,8fm",
 //                MPMediaItemPropertyArtwork: albumArt
             ]
-            MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = songInfo
+            MPNowPlayingInfoCenter.default().nowPlayingInfo = songInfo
         }
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-            UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+            UIApplication.shared.beginReceivingRemoteControlEvents()
             print("Receiving remote control events\n")
         } catch {
             print("Audio Session error.\n")
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func playButtonPressed(sender: UIButton) {
+    @IBAction func playButtonPressed(_ sender: UIButton) {
         toggle()
     }
 
@@ -55,12 +55,12 @@ class ViewController: UIViewController {
     
     func playRadio() {
         RadioPlayer.sharedInstance.play()
-        playButton.setTitle("Pause radio", forState: UIControlState.Normal)
+        playButton.setTitle("Pause radio", for: UIControlState())
     }
     
     func pauseRadio() {
         RadioPlayer.sharedInstance.pause()
-        playButton.setTitle("Play radio", forState: UIControlState.Normal)
+        playButton.setTitle("Play radio", for: UIControlState())
     }
 }
 

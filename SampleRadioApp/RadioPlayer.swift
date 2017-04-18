@@ -11,8 +11,8 @@ import AVFoundation
 
 class RadioPlayer {
     static let sharedInstance = RadioPlayer()
-    private var player = AVPlayer(URL: NSURL(string: "http://www.radiobrasov.ro/listen.m3u")!)
-    private var isPlaying = false
+    fileprivate var player = AVPlayer(url: URL(string: "http://listen.technobase.fm/dsl.pls")!)
+    fileprivate var isPlaying = false
     
     func play() {
         player.play()
